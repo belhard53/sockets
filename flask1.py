@@ -23,6 +23,12 @@ def cat_err(id):
     return (f'BAD ID')
 
 
+@app.route('/html1/')
+def html1():
+    # во фласке делается по другому, но всегда можно и так)
+    with open('1.html', 'r', encoding='utf-8') as f:
+        return f.read()
+
 @app.errorhandler(404)
 def page_not_found(error):
     return "Нет такой странички"
