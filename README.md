@@ -1,4 +1,4 @@
-# HTT, sockets and start Flask
+# HTTP, sockets and start Flask
 
 HTTP - Hyper Text Transport Protocol
 Протокол передачи гипер текста
