@@ -1,1 +1,1 @@
-# sockets
+# sockets and start Flask
