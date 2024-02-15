@@ -2,7 +2,7 @@ import socket
 
 
 
-HOST = (socket.gethostname(), 7771)
+HOST = (socket.gethostname(), 8000)
 #print(HOST)
 sock = socket.socket()
 sock.connect(HOST)

@@ -1,0 +1,512 @@
+[
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "ClientSession",
+        "importPath": "aiohttp",
+        "description": "aiohttp",
+        "isExtraImport": true,
+        "detail": "aiohttp",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "select",
+        "description": "select",
+        "detail": "select",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "queue",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "queue",
+        "description": "queue",
+        "detail": "queue",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "platform",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "platform",
+        "description": "platform",
+        "detail": "platform",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "get_weather",
+        "kind": 2,
+        "importPath": "async_weather",
+        "description": "async_weather",
+        "peekOfCode": "def get_weather(city):    \n        url = f'http://api.openweathermap.org/data/2.5/weather'\n        params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}\n        res = requests.get(url,params).json()        \n        print(f'{city}: {res[\"weather\"][0][\"main\"]}')\nasync def async_main(cities_):\n    tasks = []\n    for i, city in enumerate(cities_):\n        tasks.append(asyncio.create_task(aget_weather(city, i)))\n    for task in tasks:",
+        "detail": "async_weather",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "async_weather",
+        "description": "async_weather",
+        "peekOfCode": "def main(cities_):    \n    for city in cities_:\n        get_weather(city)\ncities = ['Moscow', 'St. Petersburg', 'Rostov-on-Don', 'Kaliningrad', 'Vladivostok',\n          'Minsk', 'Beijing', 'Delhi', 'Istanbul', 'Tokyo', 'London', 'New York']\nt = time.time()\nasyncio.run(async_main(cities*4))\n#main(cities*4)\nprint(time.time() - t)",
+        "detail": "async_weather",
+        "documentation": {}
+    },
+    {
+        "label": "n_step:int",
+        "kind": 5,
+        "importPath": "async_weather",
+        "description": "async_weather",
+        "peekOfCode": "n_step:int = 0\nasync def aget_weather(city:str, n_city):\n    global n_step\n    async with ClientSession() as session:\n        url = f'http://api.openweathermap.org/data/2.5/weather'\n        params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}\n        async with session.get(url=url, params=params) as response:\n            weather_json = await response.json()            \n            # принт не асинхронный,  но это конечная точка и выполняется очень быстро            \n            n_step += 1 ",
+        "detail": "async_weather",
+        "documentation": {}
+    },
+    {
+        "label": "cities",
+        "kind": 5,
+        "importPath": "async_weather",
+        "description": "async_weather",
+        "peekOfCode": "cities = ['Moscow', 'St. Petersburg', 'Rostov-on-Don', 'Kaliningrad', 'Vladivostok',\n          'Minsk', 'Beijing', 'Delhi', 'Istanbul', 'Tokyo', 'London', 'New York']\nt = time.time()\nasyncio.run(async_main(cities*4))\n#main(cities*4)\nprint(time.time() - t)",
+        "detail": "async_weather",
+        "documentation": {}
+    },
+    {
+        "label": "t",
+        "kind": 5,
+        "importPath": "async_weather",
+        "description": "async_weather",
+        "peekOfCode": "t = time.time()\nasyncio.run(async_main(cities*4))\n#main(cities*4)\nprint(time.time() - t)",
+        "detail": "async_weather",
+        "documentation": {}
+    },
+    {
+        "label": "rout",
+        "kind": 2,
+        "importPath": "decorator_route",
+        "description": "decorator_route",
+        "peekOfCode": "def rout(path):\n    print(path)\n    def wrapper(f):\n        print(f)\n        routs[path] = f\n    return wrapper\n@rout('/')\ndef foo1():\n    print(1)\n@rout('/cat')",
+        "detail": "decorator_route",
+        "documentation": {}
+    },
+    {
+        "label": "foo1",
+        "kind": 2,
+        "importPath": "decorator_route",
+        "description": "decorator_route",
+        "peekOfCode": "def foo1():\n    print(1)\n@rout('/cat')\ndef foo2():\n    print(2)\nadr = '/cat'\nrouts[adr]()",
+        "detail": "decorator_route",
+        "documentation": {}
+    },
+    {
+        "label": "foo2",
+        "kind": 2,
+        "importPath": "decorator_route",
+        "description": "decorator_route",
+        "peekOfCode": "def foo2():\n    print(2)\nadr = '/cat'\nrouts[adr]()",
+        "detail": "decorator_route",
+        "documentation": {}
+    },
+    {
+        "label": "adr",
+        "kind": 5,
+        "importPath": "decorator_route",
+        "description": "decorator_route",
+        "peekOfCode": "adr = '/cat'\nrouts[adr]()",
+        "detail": "decorator_route",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "def index():\n    return ('Hello PYthon')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk')\n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "cats",
+        "kind": 2,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk')\n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "cat",
+        "kind": 2,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "cat_err",
+        "kind": 2,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "def cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "html1",
+        "kind": 2,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "def html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True)",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "page_not_found",
+        "kind": 2,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "def page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True)",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "flask1",
+        "description": "flask1",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/', )\ndef index():\n    return ('Hello PYthon')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk')\n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')",
+        "detail": "flask1",
+        "documentation": {}
+    },
+    {
+        "label": "SimpleChatClientProtocol",
+        "kind": 6,
+        "importPath": "multi_sockets_server_async",
+        "description": "multi_sockets_server_async",
+        "peekOfCode": "class SimpleChatClientProtocol(asyncio.Protocol):\n    def connection_made(self, transport):\n        self.transport = transport\n        self.peername = transport.get_extra_info(\"peername\")\n        print('Подключился: {}'.format(self.peername))\n        clients.append(self)\n    def data_received(self, data):\n        print('{} отправил: {}'.format(self.peername, data.decode()))\n        for client in clients:\n            if client is not self:",
+        "detail": "multi_sockets_server_async",
+        "documentation": {}
+    },
+    {
+        "label": "wakeup",
+        "kind": 2,
+        "importPath": "multi_sockets_server_async",
+        "description": "multi_sockets_server_async",
+        "peekOfCode": "def wakeup():\n    loop = asyncio.get_event_loop()\n    loop.call_later(1, wakeup)\nif __name__ == '__main__':\n    print('Запуск...')\n    # Получаем цикл событий\n    loop = asyncio.get_event_loop()\n    # Регистрируем \"отлипатель\"\n    loop.call_later(1, wakeup)\n    # Создаём асинхронную сопрограмму-протокол",
+        "detail": "multi_sockets_server_async",
+        "documentation": {}
+    },
+    {
+        "label": "clients",
+        "kind": 5,
+        "importPath": "multi_sockets_server_async",
+        "description": "multi_sockets_server_async",
+        "peekOfCode": "clients = []\nclass SimpleChatClientProtocol(asyncio.Protocol):\n    def connection_made(self, transport):\n        self.transport = transport\n        self.peername = transport.get_extra_info(\"peername\")\n        print('Подключился: {}'.format(self.peername))\n        clients.append(self)\n    def data_received(self, data):\n        print('{} отправил: {}'.format(self.peername, data.decode()))\n        for client in clients:",
+        "detail": "multi_sockets_server_async",
+        "documentation": {}
+    },
+    {
+        "label": "close_connection",
+        "kind": 2,
+        "importPath": "multi_sockets_server_noblock",
+        "description": "multi_sockets_server_noblock",
+        "peekOfCode": "def close_connection(con):\n    sockets.remove(con)\n    if con in message_queues:\n        del message_queues[con]\n    con.close()\n# Пока есть хоть один сокет\nwhile sockets:\n    # Опрашиваем сокеты на готовность к чтению, записи, ошибки.\n    # С таймаутом в 1 секунду для того, чтобы программа реагировала\n    # на другие события.",
+        "detail": "multi_sockets_server_noblock",
+        "documentation": {}
+    },
+    {
+        "label": "server",
+        "kind": 5,
+        "importPath": "multi_sockets_server_noblock",
+        "description": "multi_sockets_server_noblock",
+        "peekOfCode": "server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nserver.setblocking(0) # Неблокирующийся сокет\nserver.bind(('localhost', 7771))\nserver.listen()\nsockets = [server]\nmessage_queues = {}\ndef close_connection(con):\n    sockets.remove(con)\n    if con in message_queues:\n        del message_queues[con]",
+        "detail": "multi_sockets_server_noblock",
+        "documentation": {}
+    },
+    {
+        "label": "sockets",
+        "kind": 5,
+        "importPath": "multi_sockets_server_noblock",
+        "description": "multi_sockets_server_noblock",
+        "peekOfCode": "sockets = [server]\nmessage_queues = {}\ndef close_connection(con):\n    sockets.remove(con)\n    if con in message_queues:\n        del message_queues[con]\n    con.close()\n# Пока есть хоть один сокет\nwhile sockets:\n    # Опрашиваем сокеты на готовность к чтению, записи, ошибки.",
+        "detail": "multi_sockets_server_noblock",
+        "documentation": {}
+    },
+    {
+        "label": "message_queues",
+        "kind": 5,
+        "importPath": "multi_sockets_server_noblock",
+        "description": "multi_sockets_server_noblock",
+        "peekOfCode": "message_queues = {}\ndef close_connection(con):\n    sockets.remove(con)\n    if con in message_queues:\n        del message_queues[con]\n    con.close()\n# Пока есть хоть один сокет\nwhile sockets:\n    # Опрашиваем сокеты на готовность к чтению, записи, ошибки.\n    # С таймаутом в 1 секунду для того, чтобы программа реагировала",
+        "detail": "multi_sockets_server_noblock",
+        "documentation": {}
+    },
+    {
+        "label": "shutdown_socket",
+        "kind": 2,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "def shutdown_socket(s):\n    # В Linux'ах просто закрыть заблокированный сокет будет мало,\n    # он так и не выйдет из состояния блокировки. Нужно передать\n    # ему команду на завершение. Но в Windows наоборот, команда\n    # на завершение вызовет зависание, если сокет был заблокирован\n    # вызовом accept(), а простое закрытие сработает.\n    if OS_NAME == 'Linux':\n        s.shutdown(socket.SHUT_RDWR)\n    s.close()    \ndef reciver(client, q):",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "reciver",
+        "kind": 2,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "def reciver(client, q):\n    while run:\n        try:\n            # Здесь поток блокируется до тех пор\n            # пока не будут считаны все имеющиеся\n            # в сокете данные\n            data = client.recv(1024)\n            if data: # Если есть данные\n                # Отправляем в очередь сообщений кортеж\n                # содержащий сокет отправителя",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "sender",
+        "kind": 2,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "def sender(q, connections):\n    while run:\n        closed_sockets = set()\n        try:\n            # Получаем из очереди сообщений\n            # сокет отправителя и принятые данные\n            sender, message = q.get(timeout=1)\n        except queue.Empty:\n            pass # Игнорируем отсутствие сообщений в очереди\n        else: # Если же сообщения есть",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "accepter",
+        "kind": 2,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "def accepter(server, connections, q):\n    while run:\n        try:\n            # Здесь поток блокируется до тех пор, пока кто-то не подключится к серверу\n            client, addr = server.accept()\n        except OSError as e:\n            # Если отловлена не ожидаемая ошибка закрытия серверного сокета, а какая-то другая\n            if (OS_NAME == 'Windows' and e.errno != 10038) or (OS_NAME == 'Linux' and e.errno != 22):\n                raise # то возбуждаем её повторно\n        else: # Если кто-то подключился и создан новый клиентский сокет",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "OS_NAME",
+        "kind": 5,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "OS_NAME = platform.system()\n# Константы\nHOST = 'localhost'\nPORT = 7771\n# Единственная глобальная переменная\n# доступная всем потокам\nrun = True\ndef shutdown_socket(s):\n    # В Linux'ах просто закрыть заблокированный сокет будет мало,\n    # он так и не выйдет из состояния блокировки. Нужно передать",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "HOST",
+        "kind": 5,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "HOST = 'localhost'\nPORT = 7771\n# Единственная глобальная переменная\n# доступная всем потокам\nrun = True\ndef shutdown_socket(s):\n    # В Linux'ах просто закрыть заблокированный сокет будет мало,\n    # он так и не выйдет из состояния блокировки. Нужно передать\n    # ему команду на завершение. Но в Windows наоборот, команда\n    # на завершение вызовет зависание, если сокет был заблокирован",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "PORT",
+        "kind": 5,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "PORT = 7771\n# Единственная глобальная переменная\n# доступная всем потокам\nrun = True\ndef shutdown_socket(s):\n    # В Linux'ах просто закрыть заблокированный сокет будет мало,\n    # он так и не выйдет из состояния блокировки. Нужно передать\n    # ему команду на завершение. Но в Windows наоборот, команда\n    # на завершение вызовет зависание, если сокет был заблокирован\n    # вызовом accept(), а простое закрытие сработает.",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "run",
+        "kind": 5,
+        "importPath": "multi_sockets_server_thread",
+        "description": "multi_sockets_server_thread",
+        "peekOfCode": "run = True\ndef shutdown_socket(s):\n    # В Linux'ах просто закрыть заблокированный сокет будет мало,\n    # он так и не выйдет из состояния блокировки. Нужно передать\n    # ему команду на завершение. Но в Windows наоборот, команда\n    # на завершение вызовет зависание, если сокет был заблокирован\n    # вызовом accept(), а простое закрытие сработает.\n    if OS_NAME == 'Linux':\n        s.shutdown(socket.SHUT_RDWR)\n    s.close()    ",
+        "detail": "multi_sockets_server_thread",
+        "documentation": {}
+    },
+    {
+        "label": "HOST",
+        "kind": 5,
+        "importPath": "socket_client",
+        "description": "socket_client",
+        "peekOfCode": "HOST = (socket.gethostname(), 8000)\n#print(HOST)\nsock = socket.socket()\nsock.connect(HOST)\nreq = b\"GET / HTTP/1.1\"\nsock.send(req)\n# пересылка по несколько блоков\n#sent = 0\n# while sent <len(req):\n#     sent = sent + sock.send(req[sent:])",
+        "detail": "socket_client",
+        "documentation": {}
+    },
+    {
+        "label": "sock",
+        "kind": 5,
+        "importPath": "socket_client",
+        "description": "socket_client",
+        "peekOfCode": "sock = socket.socket()\nsock.connect(HOST)\nreq = b\"GET / HTTP/1.1\"\nsock.send(req)\n# пересылка по несколько блоков\n#sent = 0\n# while sent <len(req):\n#     sent = sent + sock.send(req[sent:])\n# тоже самое но одним методом\n#sock.sendall(req)",
+        "detail": "socket_client",
+        "documentation": {}
+    },
+    {
+        "label": "req",
+        "kind": 5,
+        "importPath": "socket_client",
+        "description": "socket_client",
+        "peekOfCode": "req = b\"GET / HTTP/1.1\"\nsock.send(req)\n# пересылка по несколько блоков\n#sent = 0\n# while sent <len(req):\n#     sent = sent + sock.send(req[sent:])\n# тоже самое но одним методом\n#sock.sendall(req)\n#print(\"отрпавленно байт\", sock.send(req))\n# пересылка файла",
+        "detail": "socket_client",
+        "documentation": {}
+    },
+    {
+        "label": "#sent",
+        "kind": 5,
+        "importPath": "socket_client",
+        "description": "socket_client",
+        "peekOfCode": "#sent = 0\n# while sent <len(req):\n#     sent = sent + sock.send(req[sent:])\n# тоже самое но одним методом\n#sock.sendall(req)\n#print(\"отрпавленно байт\", sock.send(req))\n# пересылка файла\n#f = open(r'd:\\test.txt', 'rb')\n#sock.sendfile(f)\n#f.close()",
+        "detail": "socket_client",
+        "documentation": {}
+    },
+    {
+        "label": "#f",
+        "kind": 5,
+        "importPath": "socket_client",
+        "description": "socket_client",
+        "peekOfCode": "#f = open(r'd:\\test.txt', 'rb')\n#sock.sendfile(f)\n#f.close()\ndata = sock.recv(1024)\nprint(data)\nsock.close()",
+        "detail": "socket_client",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "socket_client",
+        "description": "socket_client",
+        "peekOfCode": "data = sock.recv(1024)\nprint(data)\nsock.close()",
+        "detail": "socket_client",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "def index():\n    f = open('1.html', 'r', encoding='utf-8')\n    res = f.read()        \n    f.close()\n    return res.encode()\ndef hello():\n     return \"Hello PYTHON!!!\"\ndef ico():   \n    with open('favicon.ico', 'rb') as f:           \n        return f.read()",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "hello",
+        "kind": 2,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "def hello():\n     return \"Hello PYTHON!!!\"\ndef ico():   \n    with open('favicon.ico', 'rb') as f:           \n        return f.read()\ndef send_file(file_name, conn):\n    try:\n        with open(file_name.strip('/'), 'rb') as f:           \n            conn.send(OK)\n            conn.send(f.read())",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "ico",
+        "kind": 2,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "def ico():   \n    with open('favicon.ico', 'rb') as f:           \n        return f.read()\ndef send_file(file_name, conn):\n    try:\n        with open(file_name.strip('/'), 'rb') as f:           \n            conn.send(OK)\n            conn.send(f.read())\n    except IOError:\n        print('нет файла')",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "send_file",
+        "kind": 2,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "def send_file(file_name, conn):\n    try:\n        with open(file_name.strip('/'), 'rb') as f:           \n            conn.send(OK)\n            conn.send(f.read())\n    except IOError:\n        print('нет файла')\n        conn.send(ERR_404)\nHOST = (socket.gethostname(), 8000)\nOK = b'HTTP/1.1 200 OK\\r\\n\\r\\n'",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "HOST",
+        "kind": 5,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "HOST = (socket.gethostname(), 8000)\nOK = b'HTTP/1.1 200 OK\\r\\n\\r\\n'\nERR_404 = b'HTTP/1.1 404 Not Found\\r\\n\\r\\n'\n# SOCK_DGRAM - UDP,  \n# SOCK_STREAM - TCP, \n# AF_INET - ip v4\nsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # ip адрес, TCP\nsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)\nsock.bind(HOST)\nsock.listen()",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "OK",
+        "kind": 5,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "OK = b'HTTP/1.1 200 OK\\r\\n\\r\\n'\nERR_404 = b'HTTP/1.1 404 Not Found\\r\\n\\r\\n'\n# SOCK_DGRAM - UDP,  \n# SOCK_STREAM - TCP, \n# AF_INET - ip v4\nsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # ip адрес, TCP\nsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)\nsock.bind(HOST)\nsock.listen()\nprint(\"---start---\")",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "ERR_404",
+        "kind": 5,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "ERR_404 = b'HTTP/1.1 404 Not Found\\r\\n\\r\\n'\n# SOCK_DGRAM - UDP,  \n# SOCK_STREAM - TCP, \n# AF_INET - ip v4\nsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # ip адрес, TCP\nsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)\nsock.bind(HOST)\nsock.listen()\nprint(\"---start---\")\nwhile True:",
+        "detail": "ssocket_server",
+        "documentation": {}
+    },
+    {
+        "label": "sock",
+        "kind": 5,
+        "importPath": "ssocket_server",
+        "description": "ssocket_server",
+        "peekOfCode": "sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # ip адрес, TCP\nsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)\nsock.bind(HOST)\nsock.listen()\nprint(\"---start---\")\nwhile True:\n        print(\"слушаю....\")\n        conn, addr = sock.accept()        \n        # conn.send(\"hello from server\".encode('utf-8'))\n        #print('---new data----', \"\\n\", addr, \"\\n\", conn, \"\\n\", sock)",
+        "detail": "ssocket_server",
+        "documentation": {}
+    }
+]

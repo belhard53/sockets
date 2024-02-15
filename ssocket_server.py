@@ -27,7 +27,7 @@ def send_file(file_name, conn):
         conn.send(ERR_404)
 
 
-HOST = (socket.gethostname(), 7771)
+HOST = (socket.gethostname(), 8000)
 
 OK = b'HTTP/1.1 200 OK\r\n\r\n'
 ERR_404 = b'HTTP/1.1 404 Not Found\r\n\r\n'
