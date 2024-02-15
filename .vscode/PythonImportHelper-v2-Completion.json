@@ -226,7 +226,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True)",
+        "peekOfCode": "def html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True, host='0.0.0.0')",
         "detail": "flask1",
         "documentation": {}
     },
@@ -235,7 +235,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True)",
+        "peekOfCode": "def page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True, host='0.0.0.0')",
         "detail": "flask1",
         "documentation": {}
     },
