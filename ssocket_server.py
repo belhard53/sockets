@@ -55,7 +55,10 @@ while True:
         
         data = conn.recv(4096).decode().split('\n')
         print(*data, sep='\n')
-        method, addr, ver = data[0].split()
+        try:
+            method, addr, ver = data[0].split()
+        except:
+            method = addr = ver = '_____'
         print(method, addr, ver, sep='\n')
         #conn.send(b'HTTP/1.0 200 OK\n\nHello World')
         
