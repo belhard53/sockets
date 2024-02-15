@@ -34,7 +34,7 @@ def page_not_found(error):
     return "Нет такой странички"
 
 
-app.run(debug =True)
+app.run(debug =True, host='0.0.0.0')
 
 
 
