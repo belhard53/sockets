@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', )
 def index():
-    return ('Hello PYthon')
+    return ('Hello FROM FLASK')
 
 @app.route('/cats/', methods = ['POST', 'GET'])
 def cats():    
