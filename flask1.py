@@ -10,7 +10,8 @@ def index():
 
 @app.route('/cats/', methods = ['POST', 'GET'])
 def cats():    
-    return ('Hello from cats ls;kd;sldk')
+    return ('Hello from cats ls;kd;sldk') 
+    
 
 @app.route('/cat/<int:id>')
 def cat(id):
@@ -25,7 +26,7 @@ def cat_err(id):
 
 @app.route('/html1/')
 def html1():
-    # во фласке делается по другому, но всегда можно и так)
+    # во фласке делается по другому, но всегда можно и так)dd
     with open('1.html', 'r', encoding='utf-8') as f:
         return f.read()
 

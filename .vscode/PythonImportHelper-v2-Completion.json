@@ -34,6 +34,14 @@
         "documentation": {}
     },
     {
+        "label": "ClientSession",
+        "importPath": "aiohttp",
+        "description": "aiohttp",
+        "isExtraImport": true,
+        "detail": "aiohttp",
+        "documentation": {}
+    },
+    {
         "label": "requests",
         "kind": 6,
         "isExtraImport": true,
@@ -102,6 +110,51 @@
         "importPath": "sys",
         "description": "sys",
         "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "get_weather",
+        "kind": 2,
+        "importPath": "async_googl_vm",
+        "description": "async_googl_vm",
+        "peekOfCode": "def get_weather(city):    \n        url = f'http://34.133.51.157/hello'\n        params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}\n        res = requests.get(url)\n        with open('err.html', 'w') as f:\n            f.write(res.text)\n        print(res.text)\nasync def async_main(cities_):\n    tasks = []\n    for i, city in enumerate(cities_):",
+        "detail": "async_googl_vm",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "async_googl_vm",
+        "description": "async_googl_vm",
+        "peekOfCode": "def main(cities_):    \n    for city in cities_:\n        get_weather(city)\ncities = ['Moscow', 'St. Petersburg', 'Rostov-on-Don', 'Kaliningrad', 'Vladivostok',\n          'Minsk', 'Beijing', 'Delhi', 'Istanbul', 'Tokyo', 'London', 'New York']\nt = time.time()\nasyncio.run(async_main(cities*3))\n#main(cities*4)\n#get_weather(\"\")\nprint(time.time() - t)",
+        "detail": "async_googl_vm",
+        "documentation": {}
+    },
+    {
+        "label": "n_step:int",
+        "kind": 5,
+        "importPath": "async_googl_vm",
+        "description": "async_googl_vm",
+        "peekOfCode": "n_step:int = 0\nasync def aget_weather(city:str, n_city):\n    global n_step\n    async with ClientSession() as session:\n        url = f'http://34.133.51.157/hello'\n        params = {'q': city, 'APPID': '2a4ff86f9aaa70041ec8e82db64abf56'}\n        async with session.get(url=url) as response:\n            res = await response.read()       \n            # принт не асинхронный,  но это конечная точка и выполняется очень быстро            \n            n_step += 1 ",
+        "detail": "async_googl_vm",
+        "documentation": {}
+    },
+    {
+        "label": "cities",
+        "kind": 5,
+        "importPath": "async_googl_vm",
+        "description": "async_googl_vm",
+        "peekOfCode": "cities = ['Moscow', 'St. Petersburg', 'Rostov-on-Don', 'Kaliningrad', 'Vladivostok',\n          'Minsk', 'Beijing', 'Delhi', 'Istanbul', 'Tokyo', 'London', 'New York']\nt = time.time()\nasyncio.run(async_main(cities*3))\n#main(cities*4)\n#get_weather(\"\")\nprint(time.time() - t)",
+        "detail": "async_googl_vm",
+        "documentation": {}
+    },
+    {
+        "label": "t",
+        "kind": 5,
+        "importPath": "async_googl_vm",
+        "description": "async_googl_vm",
+        "peekOfCode": "t = time.time()\nasyncio.run(async_main(cities*3))\n#main(cities*4)\n#get_weather(\"\")\nprint(time.time() - t)",
+        "detail": "async_googl_vm",
         "documentation": {}
     },
     {
@@ -190,7 +243,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk')\n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):",
+        "peekOfCode": "def index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):",
         "detail": "flask1",
         "documentation": {}
     },
@@ -199,7 +252,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk')\n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():",
+        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():",
         "detail": "flask1",
         "documentation": {}
     },
@@ -208,7 +261,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
+        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
         "detail": "flask1",
         "documentation": {}
     },
@@ -217,7 +270,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"",
+        "peekOfCode": "def cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"",
         "detail": "flask1",
         "documentation": {}
     },
@@ -226,7 +279,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def html1():\n    # во фласке делается по другому, но всегда можно и так)\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True, host='0.0.0.0')",
+        "peekOfCode": "def html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"\napp.run(debug =True, host='0.0.0.0')",
         "detail": "flask1",
         "documentation": {}
     },
@@ -244,7 +297,7 @@
         "kind": 5,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/', )\ndef index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk')\n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/', )\ndef index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')",
         "detail": "flask1",
         "documentation": {}
     },
