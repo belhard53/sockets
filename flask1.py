@@ -21,7 +21,7 @@ def cat(id):
 
 @app.route('/cat/<id>')
 def cat_err(id):
-    return (f'BAD ID')
+    return (f'BAD ID !!!')
 
 
 @app.route('/html1/')

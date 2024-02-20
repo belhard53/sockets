@@ -252,7 +252,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():",
+        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID !!!')\n@app.route('/html1/')\ndef html1():",
         "detail": "flask1",
         "documentation": {}
     },
@@ -261,7 +261,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
+        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID !!!')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
         "detail": "flask1",
         "documentation": {}
     },
@@ -270,7 +270,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"",
+        "peekOfCode": "def cat_err(id):\n    return (f'BAD ID !!!')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()\n@app.errorhandler(404)\ndef page_not_found(error):\n    return \"Нет такой странички\"",
         "detail": "flask1",
         "documentation": {}
     },
