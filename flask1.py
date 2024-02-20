@@ -15,7 +15,7 @@ def cats():
 
 @app.route('/cat/<int:id>')
 def cat(id):
-    return (f'Hello from cat with number {id}')
+    return (f'Hello from cat with № {id}')
 
 
 

@@ -243,7 +243,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):",
+        "peekOfCode": "def index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):",
         "detail": "flask1",
         "documentation": {}
     },
@@ -252,7 +252,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():",
+        "peekOfCode": "def cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():",
         "detail": "flask1",
         "documentation": {}
     },
@@ -261,7 +261,7 @@
         "kind": 2,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with number {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
+        "peekOfCode": "def cat(id):\n    return (f'Hello from cat with № {id}')\n@app.route('/cat/<id>')\ndef cat_err(id):\n    return (f'BAD ID')\n@app.route('/html1/')\ndef html1():\n    # во фласке делается по другому, но всегда можно и так)dd\n    with open('1.html', 'r', encoding='utf-8') as f:\n        return f.read()",
         "detail": "flask1",
         "documentation": {}
     },
@@ -297,7 +297,7 @@
         "kind": 5,
         "importPath": "flask1",
         "description": "flask1",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/', )\ndef index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with number {id}')",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/', )\ndef index():\n    return ('Hello FROM FLASK')\n@app.route('/cats/', methods = ['POST', 'GET'])\ndef cats():    \n    return ('Hello from cats ls;kd;sldk') \n@app.route('/cat/<int:id>')\ndef cat(id):\n    return (f'Hello from cat with № {id}')",
         "detail": "flask1",
         "documentation": {}
     },
